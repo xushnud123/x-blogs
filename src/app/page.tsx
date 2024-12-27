@@ -1,6 +1,5 @@
 'use client';
 import {
-  BgTextAnimation,
   Company,
   Experience,
   Fuq,

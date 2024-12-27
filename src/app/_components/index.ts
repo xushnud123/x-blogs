@@ -5,7 +5,6 @@ export { default as HoverBorderGradient } from './hover-border-gradient/hover-bo
 export { default as Marquee } from './marquee/marquee';
 export { default as MarqueeDemo } from './marquee/marque-demo';
 export { default as Projects } from './projects/projects';
-export { default as BgTextAnimation } from './bg-text-animation/bg-text-animation';
 export { default as SkillsText } from './bg-text-animation/skills-text';
 export { default as Company } from './company/company';
 export { default as Skills } from './skills/skills';
