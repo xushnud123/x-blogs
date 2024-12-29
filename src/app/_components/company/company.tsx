@@ -1,31 +1,38 @@
-import { FC } from "react";
-import Ripple from "./ripple";
-import Image from "next/image";
+import { FC } from 'react';
+import Ripple from './ripple';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface CompanyProps {}
 
 const Company: FC<CompanyProps> = ({}) => {
   return (
-    <div className='relative flex overflow-x-hidden min-h-[560px] md:min-h-[850px] overflow-y-visible w-full flex-col items-center justify-center '>
-      <div className='flex gap-10 w-full md:flex-row flex-col items-center justify-center'>
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="relative flex min-h-[560px] w-full flex-col items-center justify-center overflow-x-hidden overflow-y-visible md:min-h-[850px]"
+    >
+      <div className="flex w-full flex-col items-center justify-center gap-10 md:flex-row">
         <Image
-          src='/images/company/New.svg'
-          alt='comfi'
+          src="/images/company/New.svg"
+          alt="comfi"
           width={210}
           height={65}
-          className='w-[210px] h-auto'
+          className="h-auto w-[210px]"
         />
-        <div className='w-[210px] md:h-auto h-[160px]' />
+        <div className="h-[160px] w-[210px] md:h-auto" />
         <Image
-          src='/images/company/Лого.svg'
-          alt='buduar'
+          src="/images/company/Лого.svg"
+          alt="buduar"
           width={240}
           height={80}
-          className='w-[210px] h-auto'
+          className="h-auto w-[210px]"
         />
       </div>
       <Ripple />
-    </div>
+    </motion.div>
   );
 };
 

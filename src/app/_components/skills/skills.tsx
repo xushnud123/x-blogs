@@ -1,7 +1,7 @@
-"use client";
-import { FC } from "react";
-import { motion } from "framer-motion";
-import { skillsData } from "@/utils/constants";
+'use client';
+import { FC } from 'react';
+import { motion } from 'framer-motion';
+import { skillsData } from '@/utils/constants';
 
 interface SkillsProps {}
 
@@ -20,18 +20,24 @@ const Skills: FC<SkillsProps> = ({}) => {
     }),
   };
   return (
-    <div className='block px-5 mx-auto  max-w-[1016px]'>
-      <h5 className='font-satoshi  text-tt-5 text-[30px] leading-[36px] font-normal md:text-left text-center'>
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className="mx-auto block max-w-[1016px] px-5"
+    >
+      <h5 className="text-center font-satoshi text-[30px] font-normal leading-[36px] text-tt-5 md:text-left">
         Skills
       </h5>
-      <ul className='flex flex-wrap items-center gap-3 justify-center mt-12'>
+      <ul className="mt-12 flex flex-wrap items-center justify-center gap-3">
         {skillsData.map((item, index) => (
           <motion.li
             key={item}
-            className='bg-bg-2 rounded-[8px] font-satoshi text-tt-4 text-[16px] leading-[22px] font-medium px-3 py-2 border border-white/[0.2] list-none'
+            className="list-none rounded-[8px] border border-white/[0.2] bg-bg-2 px-3 py-2 font-satoshi text-[16px] font-medium leading-[22px] text-tt-4"
             variants={fadeInAnimationVariants}
-            initial='initial'
-            whileInView='animate'
+            initial="initial"
+            whileInView="animate"
             viewport={{ once: true }}
             custom={index}
           >
@@ -39,7 +45,7 @@ const Skills: FC<SkillsProps> = ({}) => {
           </motion.li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 

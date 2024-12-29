@@ -53,7 +53,8 @@ interface WordProps {
 }
 
 const skillsAndExperience = [
-  'Frontend Developer',
+  'Frontend',
+  'Developer',
   '2-3',
   'years.',
   'React.js',
@@ -65,7 +66,7 @@ const skillsAndExperience = [
   'API.',
   'Vue.js,',
   'Nuxt.js',
-  'UI/UX design',
+  'UI/UX',
 ];
 
 const Word: FC<WordProps> = ({ children, progress, range, text }) => {
