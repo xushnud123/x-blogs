@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     images: '/og-image-blog.jpg',
     site: 'https://x-blogs-ten.vercel.app/',
   },
+  icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
 };
 
 const inter = Inter({
