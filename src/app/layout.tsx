@@ -6,6 +6,7 @@ import './globals.css';
 import { cn } from '@/utils/cn';
 import { DockMenu, Footer } from './_components';
 import Head from 'next/head';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: 'Raimov Xushnudbek | React & Vue.js Frontend Developer | UI/UX Designer',
@@ -84,6 +85,7 @@ export default function RootLayout({
       >
         <Image src="/Container.png" alt="noise" fill className="z-[1]" />
         <div>{children}</div>
+        <SpeedInsights />
         <Footer />
         <div className="fixed bottom-[10px] left-1/2 z-20 -translate-x-1/2">
           <DockMenu />

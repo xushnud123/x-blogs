@@ -17,6 +17,7 @@
     "@tsparticles/slim": "^3.7.1",
     "@types/react-curved-text": "^2.0.3",
     "@typescript-eslint/parser": "^8.18.2",
+    "@vercel/speed-insights": "^1.1.0",
     "@xpd/tailwind-3dtransforms": "^1.0.3",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
