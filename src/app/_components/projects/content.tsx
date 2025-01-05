@@ -1,66 +1,55 @@
-import { forwardRef } from "react";
-import { motion } from "framer-motion";
-import Button from "../button/button";
-import Image from "next/image";
-import { cn } from "@/utils/cn";
+import { forwardRef } from 'react';
+import { motion } from 'framer-motion';
+import Button from '../button/button';
+import Image from 'next/image';
+import { cn } from '@/utils/cn';
 
 const Content = forwardRef<any, any>(
   (
-    {
-      child,
-      scale,
-      top,
-      name,
-      description,
-      link,
-      engagement,
-      userSatisfaction,
-      image,
-      bgColor,
-    },
-    ref
+    { child, scale, top, name, description, link, engagement, userSatisfaction, image, bgColor },
+    ref,
   ) => {
     return (
       <motion.div
         ref={ref}
-        className='flex-none h-auto mx-auto  max-w-[1016px] px-5 perspective-1200  w-full will-change-transform z-[1] sticky'
+        className="sticky z-[1] mx-auto h-auto w-full max-w-[1016px] flex-none px-5 will-change-transform perspective-1200"
         style={{ top, scale }}
       >
-        <div className='h-max p-[30px_20px]  md:p-[60px_40px] bg-bg-1 flex md:flex-row flex-col gap-10 border border-br-1 rounded-[32px] text-2xl w-full overflow-hidden relative'>
-          <div className='flex flex-col relative z-[2] justify-between w-full md:w-1/2'>
+        <div className="relative flex h-max w-full flex-col gap-10 overflow-hidden rounded-[32px] border border-br-1 bg-bg-1 p-[30px_20px] text-2xl md:flex-row md:p-[60px_40px]">
+          <div className="relative z-[2] flex w-full flex-col justify-between md:w-1/2">
             <div>
-              <h2 className='text-2xl font-normal text-left font-satoshi leading-[42px] text-tt-1'>
+              <h2 className="text-left font-satoshi text-2xl font-normal leading-[42px] text-tt-1">
                 {name}
               </h2>
-              <h4 className='text-sm font-normal text-left font-satoshi leading-relaxed text-tt-2'>
+              <h3 className="text-left font-satoshi text-sm font-normal leading-relaxed text-tt-2">
                 {description}
-              </h4>
+              </h3>
             </div>
-            <Button href={link} child='View case study' className='mt-8' />
+            <Button href={link} child="View case study" className="mt-8" />
           </div>
-          <div className={cn("relative z-[2] w-full md:w-1/2")}>
-            <div className='relative z-[2]'>
+          <div className={cn('relative z-[2] w-full md:w-1/2')}>
+            <div className="relative z-[2]">
               <Image
                 src={image}
                 alt={name}
                 width={364}
                 height={228}
-                className='w-full h-auto rounded-[8px]'
+                className="h-auto w-full rounded-[8px]"
               />
-              <div className='flex gap-5 mt-5'>
+              <div className="mt-5 flex gap-5">
                 <div>
-                  <h4 className='text-base text-left font-normal font-satoshi leading-7 text-tt-3'>
+                  <h4 className="text-left font-satoshi text-base font-normal leading-7 text-tt-3">
                     Engagement
                   </h4>
-                  <h5 className='mt-2 text-[32px] text-left font-normal font-satoshi leading-[50px] text-tt-3'>
+                  <h5 className="mt-2 text-left font-satoshi text-[32px] font-normal leading-[50px] text-tt-3">
                     {engagement}
                   </h5>
                 </div>
                 <div>
-                  <h4 className='text-base text-left font-normal font-satoshi leading-7 text-tt-3'>
+                  <h4 className="text-left font-satoshi text-base font-normal leading-7 text-tt-3">
                     User Satisfaction
                   </h4>
-                  <h5 className='mt-2 text-left text-[32px] font-normal font-satoshi leading-[50px] text-tt-3'>
+                  <h5 className="mt-2 text-left font-satoshi text-[32px] font-normal leading-[50px] text-tt-3">
                     {userSatisfaction}
                   </h5>
                 </div>
@@ -69,16 +58,16 @@ const Content = forwardRef<any, any>(
           </div>
           <div
             className={cn(
-              "absolute right-0 top-[-50px] w-[600px]  h-[600px] blur-[100px] z-[1] opacity-[0.15]",
-              bgColor
+              'absolute right-0 top-[-50px] z-[1] h-[600px] w-[600px] opacity-[0.15] blur-[100px]',
+              bgColor,
             )}
           />
         </div>
       </motion.div>
     );
-  }
+  },
 );
 
-Content.displayName = "Content";
+Content.displayName = 'Content';
 
 export default Content;

@@ -16,9 +16,9 @@ const StartProject: FC<StartProjectProps> = ({}) => {
       <h2 className="block text-center font-satoshi text-[30px] font-normal leading-[36px] text-tt-5">
         Ready to Start Your Project?
       </h2>
-      <h5 className="mb-12 mt-[10px] text-center font-satoshi text-[20px] font-normal leading-[28px] text-tt-6">
+      <h3 className="mb-12 mt-[10px] text-center font-satoshi text-[20px] font-normal leading-[28px] text-tt-6">
         Let's take your business or personal blog to the internet.
-      </h5>
+      </h3>
       <HoverBorderGradient
         containerClassName="rounded-full"
         as="a"

@@ -69,10 +69,10 @@ const Hero: FC<HeroProps> = ({}) => {
               type: 'spring',
             }}
           >
-            <h5 className="mx-auto max-w-[500px] text-center font-satoshi text-[18px] font-normal leading-[25.2px] text-gran-1">
+            <h2 className="mx-auto max-w-[500px] text-center font-satoshi text-[18px] font-normal leading-[25.2px] text-gran-1">
               As a developer and designer, I specialize in creating minimalistic, efficient, and
               beautiful websites. Let’s build something amazing together.
-            </h5>
+            </h2>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
