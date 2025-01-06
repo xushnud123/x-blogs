@@ -1,14 +1,16 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../button/button';
 import Image from 'next/image';
 import { cn } from '@/utils/cn';
+import { Blurhash } from 'react-blurhash';
 
 const Content = forwardRef<any, any>(
   (
-    { child, scale, top, name, description, link, engagement, userSatisfaction, image, bgColor },
+    { scale, top, name, description, link, engagement, userSatisfaction, image, bgColor, blurhash },
     ref,
   ) => {
+    const [isLoaded, setIsLoaded] = useState(false);
     return (
       <motion.div
         ref={ref}
@@ -29,12 +31,22 @@ const Content = forwardRef<any, any>(
           </div>
           <div className={cn('relative z-[2] w-full md:w-1/2')}>
             <div className="relative z-[2]">
+              {!isLoaded && (
+                <Blurhash
+                  hash={blurhash}
+                  className="h-auto !w-full overflow-hidden rounded-[8px]"
+                  width={364}
+                  height={228}
+                />
+              )}
+
               <Image
                 src={image}
                 alt={name}
                 width={364}
                 height={228}
                 className="h-auto w-full rounded-[8px]"
+                onLoadingComplete={() => setIsLoaded(true)}
               />
               <div className="mt-5 flex gap-5">
                 <div>

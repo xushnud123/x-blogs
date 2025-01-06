@@ -2,6 +2,7 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { FC, useRef } from 'react';
 import Content from './content';
+import { imagesBlur } from '@/utils/images-blur';
 
 interface ProjectsProps {}
 
@@ -41,6 +42,7 @@ const Projects: FC<ProjectsProps> = ({}) => {
       ref: ref1,
       top: 100,
       scale: scale2,
+      blurhash: imagesBlur.content.comfi,
     },
     {
       name: 'Buduar',
@@ -54,6 +56,7 @@ const Projects: FC<ProjectsProps> = ({}) => {
       ref: ref2,
       top: 140,
       scale: scale3,
+      blurhash: imagesBlur.content.buduar,
     },
     {
       name: 'Personal project',
@@ -66,6 +69,7 @@ const Projects: FC<ProjectsProps> = ({}) => {
       ref: ref2,
       top: 140,
       scale: scale3,
+      blurhash: imagesBlur.content.personal,
     },
     // {
     //   name: 'Comfi B2B Payments UAE',
