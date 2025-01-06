@@ -10,7 +10,6 @@ interface CompanyProps {}
 
 const Company: FC<CompanyProps> = ({}) => {
   const [isLoaded, setIsLoaded] = useState({ comfi: false, buduar: false });
-  console.log(isLoaded);
   return (
     <motion.div
       initial={{ opacity: 0, y: 100 }}
@@ -35,7 +34,6 @@ const Company: FC<CompanyProps> = ({}) => {
           height={65}
           className="h-auto w-[210px]"
           onLoadingComplete={() => {
-            console.log('hi');
             setIsLoaded({ ...isLoaded, comfi: true });
           }}
         />
