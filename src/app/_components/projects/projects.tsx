@@ -68,7 +68,7 @@ const Projects: FC<ProjectsProps> = ({}) => {
       bgColor: 'bg-projects-3',
       ref: ref2,
       top: 140,
-      scale: scale3,
+      scale: scale4,
       blurhash: imagesBlur.content.personal,
     },
     // {

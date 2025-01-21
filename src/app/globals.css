@@ -5,6 +5,9 @@
 * {
   -webkit-font-smoothing: antialiased;
   /* font-family: "Work-Sans"; */
+  /* cursor:
+    url('../../public/images/Cursor.svg') 18 18,
+    pointer !important; */
 }
 body {
   background: #000;

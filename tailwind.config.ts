@@ -125,6 +125,12 @@ module.exports = {
       screens: {
         smm: '450px',
       },
+      flex: {
+        '4n-rule': '0 0 60%',
+      },
+      maxWidth: {
+        '4n-rule': '60%',
+      },
     },
   },
   plugins: [require('@xpd/tailwind-3dtransforms'), addVariablesForColors],
