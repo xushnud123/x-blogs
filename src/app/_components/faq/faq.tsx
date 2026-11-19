@@ -13,7 +13,7 @@ const questions = [
   {
     question: 'Where can I explore the code?',
     answer:
-      'The Full-stack Monorepo links to its public GitHub repository. Other project summaries describe my contributions to private repositories. The visual previews here are illustrative interfaces made with demo content.',
+      'The Full-stack Monorepo links to its public GitHub repository. Other project summaries describe my contributions to private repositories. Project previews show official App Store images or captures of the actual applications. Local captures use sample data; click any image to see it in full.',
   },
   {
     question: 'What’s the best way to reach you?',

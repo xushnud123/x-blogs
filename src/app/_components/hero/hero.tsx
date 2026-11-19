@@ -14,18 +14,18 @@ export default function Hero() {
   return (
     <section className="hero section-wrap" aria-labelledby="hero-title">
       <motion.div className="hero-eyebrow" {...entrance(0)}>
-        <span>Raimov Xushnudbek</span>
         <span>Full-stack & mobile developer</span>
+        <span>Interfaces. Systems. Real products.</span>
       </motion.div>
       <h1 id="hero-title" className="hero-title">
         <span className="title-line">
-          <motion.span {...entrance(0.08)}>Ideas into</motion.span>
+          <motion.span {...entrance(0.08)}>Xushnudbek</motion.span>
         </span>
         <span className="title-line title-line-bottom">
           <motion.span className="portrait-pill" {...entrance(0.16)}>
             <Image src="/images/hero/image 2 (1).svg" alt="" width={130} height={130} priority />
           </motion.span>
-          <motion.span {...entrance(0.22)}>real things.</motion.span>
+          <motion.span {...entrance(0.22)}>Raimov.</motion.span>
         </span>
       </h1>
       <motion.div className="hero-bottom" {...entrance(0.32)}>

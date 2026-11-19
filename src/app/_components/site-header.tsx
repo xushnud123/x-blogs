@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { IconPlayerPause, IconPlayerPlay, IconMenu2, IconX } from '@tabler/icons-react';
+import LogoMark from './logo-mark';
 import { usePageMotion } from './motion/motion';
 
 export default function SiteHeader() {
@@ -19,7 +20,7 @@ export default function SiteHeader() {
       }}
     >
       <a className="wordmark" href="/" aria-label="Xushnudbek home">
-        x<span>.</span>
+        <LogoMark />
       </a>
       <nav
         id="main-navigation"
