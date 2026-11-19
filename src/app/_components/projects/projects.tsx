@@ -1,116 +1,90 @@
 'use client';
-import { useScroll, useTransform, motion } from 'framer-motion';
-import { FC, useRef } from 'react';
+
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { projects, profile } from '@/utils/portfolio';
 import Content from './content';
-import { imagesBlur } from '@/utils/images-blur';
+import { Reveal, usePageMotion, ease } from '../motion/motion';
 
-interface ProjectsProps {}
+const filters = ['All projects', 'GitHub', 'GitLab'] as const;
 
-const Projects: FC<ProjectsProps> = ({}) => {
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-  const ref4 = useRef(null);
-
-  const { scrollYProgress: scrollY2 } = useScroll({
-    target: ref2,
-    offset: ['1 0 ', 'start center'],
-  });
-  const { scrollYProgress: scrollY3 } = useScroll({
-    target: ref3,
-    offset: ['1 0', 'start end'],
-  });
-  const { scrollYProgress: scrollY4 } = useScroll({
-    target: ref4,
-    offset: ['1 0', 'start end'],
-  });
-
-  const scale2 = useTransform(scrollY2, [0, 1], [0.7, 1]);
-  const scale3 = useTransform(scrollY3, [0, 1], [0.9, 1]);
-  const scale4 = useTransform(scrollY4, [0, 1], [0.95, 1]);
-
-  const projects = [
-    {
-      name: 'Comfi B2B Payments UAE',
-      description:
-        'Comfi B2B Payments UAE is a software solution designed to streamline accounts receivable management for businesses in the United Arab Emirates. The software allows B2B suppliers to automate invoicing and offer flexible credit terms, fostering stronger relationships with buyers.',
-      link: 'https://comfi.ai',
-      engagement: '2 years',
-      userSatisfaction: '5',
-      image: '/images/projects/Hero.png',
-      bgColor: 'bg-projects-1',
-      ref: ref1,
-      top: 100,
-      scale: scale2,
-      blurhash: imagesBlur.content.comfi,
-    },
-    {
-      name: 'Buduar',
-      description:
-        "A platform aimed at increasing sales by promoting your clothing store's 3D content on social networks or marketplaces",
-      link: 'https://buduar.space',
-      engagement: '4-5 months',
-      userSatisfaction: '4.5',
-      image: '/images/projects/Screenshot 2024-08-26 at 20.58.24.png',
-      bgColor: 'bg-projects-2',
-      ref: ref2,
-      top: 140,
-      scale: scale3,
-      blurhash: imagesBlur.content.buduar,
-    },
-    {
-      name: 'Personal project',
-      description: 'A small project that tells about myself',
-      link: 'https://xushnudbek-2023.vercel.app/',
-      engagement: '1-2 months',
-      userSatisfaction: '4.5',
-      image: '/images/projects/Screenshot 2024-12-29 at 17.27.40.png',
-      bgColor: 'bg-projects-3',
-      ref: ref2,
-      top: 140,
-      scale: scale4,
-      blurhash: imagesBlur.content.personal,
-    },
-    // {
-    //   name: 'Comfi B2B Payments UAE',
-    //   description:
-    //     'Comfi B2B Payments UAE is a software solution designed to streamline accounts receivable management for businesses in the United Arab Emirates. The software allows B2B suppliers to automate invoicing and offer flexible credit terms, fostering stronger relationships with buyers.',
-    //   link: 'https://comfi.ai',
-    //   engagement: '2 years',
-    //   userSatisfaction: '5',
-    //   image: '/images/projects/Hero.png',
-    //   bgColor: 'bg-projects-3',
-    //   ref: ref3,
-    //   top: 175,
-    //   scale: scale4,
-    // },
-    // {
-    //   name: 'Buduar',
-    //   description:
-    //     "A platform aimed at increasing sales by promoting your clothing store's 3D content on social networks or marketplaces",
-    //   link: 'https://buduar.space.com',
-    //   engagement: '4-5 months',
-    //   userSatisfaction: '4.5',
-    //   image: '/images/projects/Screenshot 2024-08-26 at 20.58.24.png',
-    //   bgColor: 'bg-projects-4',
-    //   ref: ref4,
-    //   top: 210,
-    // },
-  ];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="relative flex min-h-min flex-col flex-nowrap gap-[48px] overflow-visible perspective-1200"
-    >
-      {projects.map(({ ref, ...project }, index) => (
-        <Content key={index} {...project} ref={ref} />
-      ))}
-    </motion.div>
+export default function Projects() {
+  const [filter, setFilter] = useState<(typeof filters)[number]>('All projects');
+  const { paused } = usePageMotion();
+  const visible = projects.filter(
+    (project) => filter === 'All projects' || project.sources.includes(filter),
   );
-};
-
-export default Projects;
+  return (
+    <section id="Work" className="work-section section-wrap" aria-labelledby="work-title">
+      <Reveal className="section-heading">
+        <h2 id="work-title">
+          Selected <span>work.</span>
+        </h2>
+        <p>
+          A few things I’ve helped bring to life.
+          <br />
+          Updated {profile.updated}.
+        </p>
+      </Reveal>
+      <div className="project-filters" role="group" aria-label="Filter projects by source">
+        {filters.map((item) => (
+          <button
+            key={item}
+            type="button"
+            aria-pressed={filter === item}
+            onClick={() => setFilter(item)}
+          >
+            {filter === item && (
+              <motion.span
+                className="filter-highlight"
+                layoutId={paused ? undefined : 'filter-indicator'}
+                transition={{ duration: 0.3, ease }}
+              />
+            )}
+            <span>{item}</span>
+            <span className="filter-count">
+              {item === 'All projects'
+                ? projects.length
+                : projects.filter((p) => p.sources.includes(item)).length}
+            </span>
+          </button>
+        ))}
+        <p className="results-count" role="status">
+          {visible.length} projects
+        </p>
+      </div>
+      <div className="project-grid">
+        <AnimatePresence mode="popLayout" initial={false}>
+          {visible.map((project, index) => (
+            <motion.div
+              layout={!paused}
+              className={
+                project.id === 'tokbor' || project.id === 'turborepo'
+                  ? 'project-slot wide'
+                  : 'project-slot'
+              }
+              key={project.id}
+              initial={{ opacity: 0, y: paused ? 0 : 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: paused ? 1 : 0.98 }}
+              transition={{ duration: paused ? 0 : 0.4, ease }}
+            >
+              <Reveal delay={Math.min((index % 2) * 0.08, 0.08)}>
+                <Content project={project} />
+              </Reveal>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+      <Reveal className="earlier-work">
+        <span>Previously, on the web</span>
+        <a href="https://comfi.ai" target="_blank" rel="noopener noreferrer">
+          Comfi <span>B2B payments</span>
+        </a>
+        <a href="https://buduar.space" target="_blank" rel="noopener noreferrer">
+          Buduar <span>3D commerce</span>
+        </a>
+      </Reveal>
+    </section>
+  );
+}

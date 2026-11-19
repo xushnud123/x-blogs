@@ -1,26 +1,3 @@
-export const skillsData = [
-  "HTML5",
-  "CSS3 / CSS3 Module",
-  "SASS / SASS Module",
-  "Tailwind",
-  "React js",
-  "Vue js",
-  "Next js",
-  "Nuxt js",
-  "JavaScript",
-  "TypeScript",
-  "MUI",
-  "Antd Design",
-  "Storybook",
-  "React-Hook-Form",
-  "Redux",
-  "React Query",
-  "GitHub",
-  "Git",
-  "Node js (junior)",
-  "MongoDB",
-  "+ More",
-  "Figma",
-  "React Native (junior)",
-  "UI/UX Design (junior)",
-];
+import { skillGroups } from './portfolio';
+
+export const skillsData = skillGroups.flatMap((group) => group.items);
