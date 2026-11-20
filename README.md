@@ -30,13 +30,14 @@ credentials, customer records, unsupported ratings, or production statistics.
 
 The main page uses Urbanist and a light editorial design inspired by the user’s
 Ron Design Lab reference. Real product images use application captures with sample data.
-Project details, GitHub/GitLab filters, a mobile menu, motion pause controls, and
+Large static project galleries, GitHub/GitLab filters, a mobile menu, motion pause controls, and
 reduced-motion support are included. The FAQ uses native disclosure controls. `/tests` remains the existing animation demonstration route.
 
 ## Product images and identity
 
 `src/utils/project-media.ts` maps the real product images to each project. Click an
 image to open the accessible viewer; Escape closes it and arrow keys switch images.
+Portrait images open at a larger, readable width with vertical scrolling.
 The headline features the developer's name. The approved standalone sage symbol is
 based on the [Xentam reference by Tuintrick Studio](https://logosystems.app/logo/ls-xentam),
 with lighter branches and open spacing. Its geometry lives in `src/utils/brand.json`;
@@ -71,6 +72,8 @@ Image provenance (captured November 2026):
 
 Assets in `public/images/projects/real/` are locally served WebP files. PNG captures
 are compressed for delivery without cropping; the Beon ribbon cleanup is noted above.
-Portrait galleries scroll and snap on narrow screens, with previous/next controls;
-all images remain available in the full-size viewer. Tablet navigation collapses
-before it becomes crowded, and landscape image viewers allow vertical scrolling.
+Galleries show every image without a carousel: phone screens sit side by side when
+space allows and stack at full width on smaller screens. Large desktop layouts give
+most of the row to the images and keep project descriptions alongside them; narrower
+layouts put the description first. Each screen has a short caption and a full-size viewer.
+Tablet navigation collapses before it becomes crowded.

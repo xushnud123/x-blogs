@@ -9,7 +9,6 @@ export default function Content({ project }: { project: Project }) {
   const [expanded, setExpanded] = useState(false);
   return (
     <article className={`project-card project-${project.id}`}>
-      <ProjectArt id={project.id} />
       <div className="project-info">
         <div className="project-heading">
           <div>
@@ -75,6 +74,7 @@ export default function Content({ project }: { project: Project }) {
           </div>
         </div>
       </div>
+      <ProjectArt id={project.id} />
     </article>
   );
 }

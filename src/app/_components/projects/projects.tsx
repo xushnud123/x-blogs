@@ -58,11 +58,7 @@ export default function Projects() {
           {visible.map((project, index) => (
             <motion.div
               layout={!paused}
-              className={
-                project.id === 'tokbor' || project.id === 'turborepo'
-                  ? 'project-slot wide'
-                  : 'project-slot'
-              }
+              className="project-slot"
               key={project.id}
               initial={{ opacity: 0, y: paused ? 0 : 24 }}
               animate={{ opacity: 1, y: 0 }}

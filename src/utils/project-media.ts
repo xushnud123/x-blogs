@@ -1,4 +1,10 @@
-export type ProjectImage = { file: string; alt: string; width: number; height: number };
+export type ProjectImage = {
+  file: string;
+  label: string;
+  alt: string;
+  width: number;
+  height: number;
+};
 export type ProjectMedia = {
   title: string;
   layout: 'portrait' | 'landscape';
@@ -6,8 +12,15 @@ export type ProjectMedia = {
   source?: string;
   images: ProjectImage[];
 };
-const appScreen = (file: string, alt: string, width = 1206, height = 2622): ProjectImage => ({
+const appScreen = (
+  file: string,
+  label: string,
+  alt: string,
+  width = 1206,
+  height = 2622,
+): ProjectImage => ({
   file,
+  label,
   alt,
   width,
   height,
@@ -20,9 +33,14 @@ export const projectMedia: Record<string, ProjectMedia> = {
     caption: 'App screens · demo data',
     source: 'https://apps.apple.com/uz/app/tokbor/id1562120388',
     images: [
-      appScreen('tokbor-charging-app', 'TOK BOR in-app charging status with a sample session'),
+      appScreen(
+        'tokbor-charging-app',
+        'Charging session',
+        'TOK BOR in-app charging status with a sample session',
+      ),
       appScreen(
         'tokbor-filters-app',
+        'Station filters',
         'TOK BOR station filters with connector types and power options',
       ),
     ],
@@ -35,6 +53,7 @@ export const projectMedia: Record<string, ProjectMedia> = {
     images: [
       appScreen(
         'beon-home-app',
+        'Home · map & station search',
         'Beon home screen with the Tashkent map, station search and sample balance',
         852,
         1846,
@@ -48,12 +67,14 @@ export const projectMedia: Record<string, ProjectMedia> = {
     images: [
       {
         file: 'navbat-search',
+        label: 'Discover services',
         alt: 'Navbat service discovery screen with sample businesses',
         width: 552,
         height: 1200,
       },
       {
         file: 'navbat-ticket',
+        label: 'Your queue ticket',
         alt: 'Navbat queue ticket for a sample appointment',
         width: 552,
         height: 1200,
@@ -65,8 +86,18 @@ export const projectMedia: Record<string, ProjectMedia> = {
     layout: 'portrait',
     caption: 'App screens · demo data',
     images: [
-      appScreen('tokbor-charging-app', 'TOK BOR mobile charging status with sample readings'),
-      appScreen('beon-home-app', 'Beon mobile home screen with map and station search', 852, 1846),
+      appScreen(
+        'tokbor-charging-app',
+        'TOK BOR · charging',
+        'TOK BOR mobile charging status with sample readings',
+      ),
+      appScreen(
+        'beon-home-app',
+        'Beon · home',
+        'Beon mobile home screen with map and station search',
+        852,
+        1846,
+      ),
     ],
   },
   'jonli-navbat': {
@@ -76,12 +107,14 @@ export const projectMedia: Record<string, ProjectMedia> = {
     images: [
       {
         file: 'jonli-standing',
+        label: 'Your place in line',
         alt: 'Jonli Navbat queue position with sample participants',
         width: 780,
         height: 1688,
       },
       {
         file: 'jonli-nearby',
+        label: 'Nearby queues',
         alt: 'Jonli Navbat nearby queues with sample data',
         width: 780,
         height: 1688,
@@ -95,6 +128,7 @@ export const projectMedia: Record<string, ProjectMedia> = {
     images: [
       {
         file: 'coucoupet-home',
+        label: 'Desktop companion',
         alt: 'CoucouPet actual macOS panel with Oppoq and Shaftoli',
         width: 1600,
         height: 1148,
@@ -109,6 +143,7 @@ export const projectMedia: Record<string, ProjectMedia> = {
     images: [
       {
         file: 'comfi-website',
+        label: 'Flexible B2B payments',
         alt: 'Comfi website presenting flexible B2B payment terms',
         width: 1280,
         height: 800,
@@ -123,6 +158,7 @@ export const projectMedia: Record<string, ProjectMedia> = {
     images: [
       {
         file: 'turborepo-dashboard',
+        label: 'Product management',
         alt: 'Full-stack Monorepo product dashboard with sample products',
         width: 1440,
         height: 900,
