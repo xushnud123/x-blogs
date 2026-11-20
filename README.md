@@ -51,8 +51,10 @@ Image provenance (captured November 2026):
   and sample session/filter data. Capture configuration points to a closed loopback
   port; no live charging action, customer account, or remote API is used.
 - Beon: existing native test-app captures from the charging setup and starting flow,
-  with sample balance/amounts. The development ribbon is preserved. These are app
-  screens, not the App Store promotional artwork used in the earlier refresh.
+  with sample balance/amounts. At the user's request, the top-right DEV ribbon was
+  removed using image editing for portfolio presentation. The original captures remain
+  in the local review sources; the cleaned copies use separate filenames. These are
+  app screens, not the App Store promotional artwork used in the earlier refresh.
 - Navbat: the repository's `apps/web/public/screens/search.png` and `ticket.png`;
   business and staff names were checked against the demo seed.
 - Jonli Navbat: actual Mini App screens captured locally using its built-in simulator
@@ -66,8 +68,8 @@ Image provenance (captured November 2026):
 - Full-stack Monorepo: the actual product table rendered locally with sample products
   and a demo account. No production database was contacted.
 
-Assets in `public/images/projects/real/` are locally served WebP files. Native PNG
-captures are compressed for delivery without cropping or changing their interfaces.
+Assets in `public/images/projects/real/` are locally served WebP files. PNG captures
+are compressed for delivery without cropping; the Beon ribbon cleanup is noted above.
 Portrait galleries scroll and snap on narrow screens, with previous/next controls;
 all images remain available in the full-size viewer. Tablet navigation collapses
 before it becomes crowded, and landscape image viewers allow vertical scrolling.

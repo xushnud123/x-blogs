@@ -6,11 +6,11 @@ export type ProjectMedia = {
   source?: string;
   images: ProjectImage[];
 };
-const appScreen = (file: string, alt: string): ProjectImage => ({
+const appScreen = (file: string, alt: string, width = 1206, height = 2622): ProjectImage => ({
   file,
   alt,
-  width: 1206,
-  height: 2622,
+  width,
+  height,
 });
 
 export const projectMedia: Record<string, ProjectMedia> = {
@@ -33,8 +33,18 @@ export const projectMedia: Record<string, ProjectMedia> = {
     caption: 'App screens · demo data',
     source: 'https://apps.apple.com/uz/app/beon/id6478271325',
     images: [
-      appScreen('beon-charging-app', 'Beon charging setup with sample balance and charge amount'),
-      appScreen('beon-starting-app', 'Beon starting a charging session in the test app'),
+      appScreen(
+        'beon-charging-clean-app',
+        'Beon charging setup with sample balance and charge amount',
+        851,
+        1848,
+      ),
+      appScreen(
+        'beon-starting-clean-app',
+        'Beon starting a charging session in the test app',
+        851,
+        1849,
+      ),
     ],
   },
   navbat: {
@@ -62,7 +72,12 @@ export const projectMedia: Record<string, ProjectMedia> = {
     caption: 'App screens · demo data',
     images: [
       appScreen('tokbor-charging-app', 'TOK BOR mobile charging status with sample readings'),
-      appScreen('beon-charging-app', 'Beon mobile charging setup with sample balance'),
+      appScreen(
+        'beon-charging-clean-app',
+        'Beon mobile charging setup with sample balance',
+        851,
+        1848,
+      ),
     ],
   },
   'jonli-navbat': {
