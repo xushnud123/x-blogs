@@ -7,6 +7,14 @@ export const site = {
   telegram: 'https://t.me/XushnudbekRaimov',
 };
 
+// Public profiles only. Company GitLab instances must never be published here.
+export const socialProfiles = [
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/xushnudbek-raimov-a876a9228/' },
+  { name: 'hh.uz', url: 'https://tashkent.hh.uz/resume/473f807fff0d209b900039ed1f474f6d643063' },
+  { name: 'GitHub', url: 'https://github.com/xushnud123' },
+  { name: 'GitLab', url: 'https://gitlab.com/xushnud123' },
+];
+
 export const locales = ['en', 'uz', 'ru'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';

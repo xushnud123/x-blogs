@@ -6,9 +6,11 @@ import { useState } from 'react';
 import { IconBrandGithub, IconBrandGitlab, IconPlus } from '@tabler/icons-react';
 import type { Project } from '@/utils/portfolio';
 import ProjectArt from './project-art';
+import Link from 'next/link';
+import { localePath } from '@/utils/site';
 
 export default function Content({ project }: { project: Project }) {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
   const [expanded, setExpanded] = useState(false);
   return (
     <article className={`project-card project-${project.id}`}>
@@ -16,7 +18,9 @@ export default function Content({ project }: { project: Project }) {
         <div className="project-heading">
           <div>
             <p className="project-category">{t(project.category)}</p>
-            <h3>{project.name}</h3>
+            <h3>
+              <Link href={localePath(locale, `/projects/${project.id}`)}>{project.name}</Link>
+            </h3>
           </div>
           <button
             type="button"
@@ -30,6 +34,12 @@ export default function Content({ project }: { project: Project }) {
           </button>
         </div>
         <p className="project-description">{t(project.description)}</p>
+        <Link
+          className="text-link project-page-link"
+          href={localePath(locale, `/projects/${project.id}`)}
+        >
+          {t('View project')}
+        </Link>
         <div className="project-meta">
           <div className="source-labels">
             {project.sources.map((source) => (

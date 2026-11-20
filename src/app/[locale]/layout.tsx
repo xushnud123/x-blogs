@@ -1,7 +1,7 @@
 import { Urbanist, Manrope } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { isLocale, locales, site } from '@/utils/site';
+import { isLocale, locales } from '@/utils/site';
 import { pageMetadata } from '@/utils/site-metadata';
 import { PageMotion } from '@/app/_components/motion/motion';
 import LanguageProvider from '@/app/_components/language-provider';
@@ -64,22 +64,6 @@ export default async function RootLayout({
             <Footer />
           </LanguageProvider>
         </PageMotion>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Xushnudbek Raimov',
-              url: site.url,
-              telephone: site.phone,
-              sameAs: [
-                'https://github.com/xushnud123',
-                'https://www.linkedin.com/in/xushnudbek-raimov-a876a9228/',
-              ],
-            }),
-          }}
-        />
         <SpeedInsights />
       </body>
     </html>

@@ -5,10 +5,12 @@ import Experience from '@/app/_components/experience/experience';
 import Skills from '@/app/_components/skills/skills';
 import Faq from '@/app/_components/faq/faq';
 import StartProject from '@/app/_components/start-project/start-project';
+import StructuredData from '@/app/_components/structured-data';
 
 export default function Home() {
   return (
     <>
+      <StructuredData path="/" />
       <Hero />
       <Projects />
       <Company />

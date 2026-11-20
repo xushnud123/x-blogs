@@ -1,16 +1,22 @@
 import type { Metadata } from 'next';
-import { profile } from './portfolio';
+import { profile, projects } from './portfolio';
+import { projectSeo } from './project-seo';
 import { defaultLocale, locales, siteUrl, site, type Locale } from './site';
 import { translate } from './translations';
 
 export function pageCopy(locale: Locale, path: string) {
   const about = path === '/about';
+  const project = projects.find((item) => path === `/projects/${item.id}`);
   return {
-    title: translate(about ? 'About Xushnudbek Raimov | xushnud.dev' : profile.title, locale),
+    title: project
+      ? `${project.name} | ${translate('Xushnudbek Raimov', locale)}`
+      : translate(about ? 'About Xushnudbek Raimov | xushnud.dev' : profile.title, locale),
     description: translate(
-      about
-        ? 'Get to know Xushnudbek Raimov: his development journey, interests, and the ideas behind his web, mobile, and desktop projects.'
-        : profile.description,
+      project
+        ? projectSeo[project.id].description
+        : about
+          ? 'Get to know Xushnudbek Raimov: his development journey, interests, and the ideas behind his web, mobile, and desktop projects.'
+          : profile.description,
       locale,
     ),
     url: siteUrl(locale, path),
@@ -23,6 +29,9 @@ export function pageMetadata(locale: Locale, path = '/'): Metadata {
     metadataBase: new URL(site.url),
     title: copy.title,
     description: copy.description,
+    authors: [{ name: 'Xushnudbek Raimov', url: siteUrl(locale, '/about') }],
+    creator: 'Xushnudbek Raimov',
+    robots: { index: true, follow: true, googleBot: { 'max-image-preview': 'large' } },
     alternates: {
       canonical: copy.url,
       languages: Object.fromEntries([

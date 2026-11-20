@@ -2,6 +2,96 @@ import type { Locale } from './site';
 
 // English is the source copy. Each entry contains Uzbek and Russian translations.
 const translations: Record<string, readonly [string, string]> = {
+  'Xushnudbek Raimov': ['Xushnudbek Raimov', 'Хушнудбек Раимов'],
+  Home: ['Bosh sahifa', 'Главная'],
+  Breadcrumb: ['Sahifa yo‘li', 'Навигационная цепочка'],
+  'View project': ['Loyihani ko‘rish', 'Подробнее о проекте'],
+  'Selected projects': ['Tanlangan loyihalar', 'Избранные проекты'],
+  'Project work by Xushnudbek Raimov': [
+    'Xushnudbek Raimovning loyiha ustidagi ishlari',
+    'Работа Хушнудбека Раимова над проектом',
+  ],
+  'My contribution': ['Mening hissam', 'Мой вклад'],
+  Technologies: ['Texnologiyalar', 'Технологии'],
+  'View on the App Store': ['App Store’da ko‘rish', 'Открыть в App Store'],
+  'Project screens': ['Loyiha ekranlari', 'Экраны проекта'],
+  'More projects': ['Boshqa loyihalar', 'Другие проекты'],
+  'Xushnudbek Raimov’s work on TOK BOR: EV charging services, admin interfaces, and OCPP / OCPI integrations. Explore the project and app screens.':
+    [
+      'Xushnudbek Raimovning TOK BOR loyihasidagi ishlari: elektromobil quvvatlash xizmatlari, boshqaruv interfeyslari va OCPP / OCPI integratsiyalari.',
+      'Работа Хушнудбека Раимова над TOK BOR: сервисы зарядки электромобилей, административные интерфейсы и интеграции OCPP / OCPI. Обзор проекта и экраны приложения.',
+    ],
+  'Full-stack contributions to an EV charging platform, connecting backend services and administrative interfaces.':
+    [
+      'Elektromobil quvvatlash platformasining backend xizmatlari va boshqaruv interfeyslarini bog‘lovchi full-stack ishlar.',
+      'Full-stack разработка платформы зарядки электромобилей: серверные сервисы и административные интерфейсы.',
+    ],
+  'Xushnudbek Raimov’s contributions to Beon: EV charging, backend services, dashboards, and payments. See project details and the real app.':
+    [
+      'Xushnudbek Raimovning Beon loyihasiga hissasi: elektromobil quvvatlash, backend, boshqaruv panellari va to‘lovlar. Loyiha va ilovaning haqiqiy ekranlari.',
+      'Вклад Хушнудбека Раимова в Beon: зарядка электромобилей, backend, панели управления и платежи. Описание проекта и экраны приложения.',
+    ],
+  'Backend and dashboard development for charging, payment, and reporting experiences.': [
+    'Quvvatlash, to‘lovlar va hisobotlar uchun backend hamda boshqaruv panellarini ishlab chiqish.',
+    'Разработка backend и панелей управления для зарядки, платежей и отчётности.',
+  ],
+  'Navbat by Xushnudbek Raimov: a queue and appointment project spanning web, mobile, and API development. Explore features and app screenshots.':
+    [
+      'Xushnudbek Raimovning Navbat loyihasi: navbat va qabulga yozilish uchun veb, mobil ilova va API. Imkoniyatlar hamda ilova ekranlari bilan tanishing.',
+      'Navbat — проект Хушнудбека Раимова для очередей и записи на приём: веб, мобильное приложение и API. Возможности проекта и скриншоты.',
+    ],
+  'A full-stack project exploring queue management and appointments across web and mobile.': [
+    'Veb va mobil ilovalarda navbat boshqaruvi hamda qabulga yozilishga bag‘ishlangan full-stack loyiha.',
+    'Full-stack проект для управления очередями и записи на приём в веб- и мобильном приложении.',
+  ],
+  'Explore Xushnudbek Raimov’s Flutter contributions to TOK BOR and Beon mobile apps: maps, charging sessions, and payments, with real app screens.':
+    [
+      'Xushnudbek Raimovning TOK BOR va Beon mobil ilovalaridagi Flutter ishlari: xaritalar, quvvatlash va to‘lovlar. Ilovalarning haqiqiy ekranlari.',
+      'Flutter-разработка Хушнудбека Раимова для TOK BOR и Beon: карты, зарядные сессии и платежи. Настоящие экраны мобильных приложений.',
+    ],
+  'Flutter development for mobile charging experiences in TOK BOR and Beon.': [
+    'TOK BOR va Beon mobil ilovalaridagi quvvatlash imkoniyatlarini Flutter’da ishlab chiqish.',
+    'Разработка функций мобильной зарядки в приложениях TOK BOR и Beon на Flutter.',
+  ],
+  'Jonli Navbat by Xushnudbek Raimov: a Telegram Mini App and bot for joining physical queues and following your place in line.':
+    [
+      'Xushnudbek Raimovning Jonli Navbat loyihasi: jonli navbatga qo‘shilish va o‘rningizni kuzatish uchun Telegram Mini App hamda bot.',
+      'Jonli Navbat от Хушнудбека Раимова: Telegram Mini App и бот для присоединения к живой очереди и отслеживания своего места.',
+    ],
+  'A Telegram Mini App and bot project connecting a web interface with queue participation.': [
+    'Veb-interfeys va navbatga qo‘shilish imkoniyatini birlashtiruvchi Telegram Mini App hamda bot loyihasi.',
+    'Проект Telegram Mini App и бота, объединяющий веб-интерфейс с участием в очереди.',
+  ],
+  'CoucouPet by Xushnudbek Raimov: a macOS experiment with animated desktop pets, AI conversations, and interactive companions Oppoq and Shaftoli.':
+    [
+      'Xushnudbek Raimovning CoucouPet loyihasi: macOS uchun jonlantirilgan Oppoq va Shaftoli, interaktiv ish stoli hamrohlari va AI suhbatlari.',
+      'CoucouPet от Хушнудбека Раимова: эксперимент для macOS с анимированными питомцами Oppoq и Shaftoli, интерактивным поведением и разговорами с ИИ.',
+    ],
+  'A personal macOS experiment combining native interfaces, animated companions, and AI conversations.':
+    [
+      'macOS interfeyslari, jonlantirilgan hamrohlar va AI suhbatlarini birlashtiruvchi shaxsiy tajriba.',
+      'Личный эксперимент для macOS, объединяющий нативные интерфейсы, анимированных компаньонов и разговоры с ИИ.',
+    ],
+  'Xushnudbek Raimov’s frontend contributions to Comfi’s B2B payments website: responsive product pages and reusable React components.':
+    [
+      'Xushnudbek Raimovning Comfi B2B to‘lovlar saytidagi frontend ishlari: moslashuvchan mahsulot sahifalari va qayta ishlatiladigan React komponentlari.',
+      'Frontend-разработка Хушнудбека Раимова для сайта B2B-платежей Comfi: адаптивные страницы продукта и переиспользуемые React-компоненты.',
+    ],
+  'Frontend contributions to Comfi’s website, focused on responsive product pages and reusable components.':
+    [
+      'Comfi saytida moslashuvchan mahsulot sahifalari va qayta ishlatiladigan komponentlarga yo‘naltirilgan frontend ishlar.',
+      'Вклад во frontend сайта Comfi: адаптивные страницы продукта и переиспользуемые компоненты.',
+    ],
+  'Xushnudbek Raimov’s public full-stack monorepo: React, Express, tRPC, Prisma, and shared validation. View the project and GitHub source.':
+    [
+      'Xushnudbek Raimovning ochiq full-stack monorepo loyihasi: React, Express, tRPC, Prisma va umumiy validatsiya. Loyiha va GitHub’dagi kod.',
+      'Открытый full-stack монорепозиторий Хушнудбека Раимова: React, Express, tRPC, Prisma и общая валидация. Обзор проекта и исходный код на GitHub.',
+    ],
+  'A public development project exploring a typed web client, API, and shared packages in one workspace.':
+    [
+      'Tiplashtirilgan veb-klient, API va umumiy paketlarni bir ish muhitida birlashtiruvchi ochiq loyiha.',
+      'Открытый проект с типизированным веб-клиентом, API и общими пакетами в едином рабочем пространстве.',
+    ],
   'Anime & imagined worlds': ['Anime va fantastik olamlar', 'Аниме и фантастические миры'],
   'Bleach, Fullmetal Alchemist, and Marvel draw me into questions about characters, their choices, and how a story fits together. I like looking beyond the ending to understand the world behind it.':
     [

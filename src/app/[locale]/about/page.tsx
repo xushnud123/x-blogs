@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { isLocale } from '@/utils/site';
 import { pageMetadata } from '@/utils/site-metadata';
 import About from '@/app/_components/about/about';
+import StructuredData from '@/app/_components/structured-data';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -10,5 +11,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default function AboutPage() {
-  return <About />;
+  return (
+    <>
+      <StructuredData path="/about" />
+      <About />
+    </>
+  );
 }
