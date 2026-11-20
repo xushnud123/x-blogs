@@ -1242,6 +1242,9 @@ button svg {
   max-width: none;
   scroll-snap-align: start;
 }
+.media-portrait .media-gallery:has(> .media-shot:only-child) {
+  justify-content: safe center;
+}
 .media-landscape .media-shot {
   height: auto;
   width: 100%;

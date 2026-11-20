@@ -50,11 +50,12 @@ Image provenance (captured November 2026):
   rendered at 402 × 874 logical pixels with bundled assets, Inter/Roboto fonts,
   and sample session/filter data. Capture configuration points to a closed loopback
   port; no live charging action, customer account, or remote API is used.
-- Beon: existing native test-app captures from the charging setup and starting flow,
-  with sample balance/amounts. At the user's request, the top-right DEV ribbon was
-  removed using image editing for portfolio presentation. The original captures remain
-  in the local review sources; the cleaned copies use separate filenames. These are
-  app screens, not the App Store promotional artwork used in the earlier refresh.
+- Beon: an existing native home-screen capture from the app review, showing the
+  Tashkent map, station search, and network filters. The user requested this home
+  screen instead of the charging setup/starting flow. Image editing removes the DEV
+  ribbon and replaces the balance with a zero-value sample for portfolio presentation.
+  The original capture is retained in local review sources. The same home-screen asset
+  is used in the combined mobile project.
 - Navbat: the repository's `apps/web/public/screens/search.png` and `ticket.png`;
   business and staff names were checked against the demo seed.
 - Jonli Navbat: actual Mini App screens captured locally using its built-in simulator
