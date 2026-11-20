@@ -8,12 +8,9 @@ const translations: Record<string, readonly [string, string]> = {
       'Bleach, Po‘lat alkimyogar va Marvel olamlarida qahramonlar, ularning tanlovlari va voqealar qanday bog‘langani menga qiziq. Yakunini bilish bilan cheklanmay, hikoya ortidagi mantiqni ham tushunishga harakat qilaman.',
       'Bleach, «Стальной алхимик» и Marvel вызывают у меня вопросы о героях, их выборе и связях между событиями. Мне интересно не только узнать финал, но и разобраться в логике этого мира.',
     ],
-  'Mythology & stories': ['Mifologiya va hikoyalar', 'Мифология и истории'],
-  'Stories such as the Ramayana and Mahabharata make me curious about their characters, timelines, and connections. One question often leads to the next.':
-    [
-      'Ramayana va Mahabharata kabi hikoyalardagi qahramonlar, voqealar ketma-ketligi va ular orasidagi bog‘liqliklarni o‘rganish menga qiziq. Bir savol ko‘pincha keyingisiga olib keladi.',
-      'Мне любопытны персонажи, хронология и связи в таких историях, как «Рамаяна» и «Махабхарата». Один вопрос часто ведёт к следующему.',
-    ],
+  'Dark mode': ['Qorong‘i rejim', 'Тёмный режим'],
+  'Switch to light mode': ['Yorug‘ rejimga o‘tish', 'Включить светлый режим'],
+  'Switch to dark mode': ['Qorong‘i rejimga o‘tish', 'Включить тёмный режим'],
   'Architecture & engineering': ['Arxitektura va muhandislik', 'Архитектура и инженерия'],
   'I explore how drawings, BIM models, calculations, and estimates connect. I’m especially interested in using software and AI to make that work more consistent and easier to check.':
     [

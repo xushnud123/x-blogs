@@ -1,18 +1,18 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { IconPlayerPause, IconPlayerPlay, IconMenu2, IconX } from '@tabler/icons-react';
+import { IconMenu2, IconX } from '@tabler/icons-react';
 import LogoMark from './logo-mark';
-import { usePageMotion } from './motion/motion';
 import Link from 'next/link';
 import { localePath } from '@/utils/site';
 import { useLanguage } from './language-provider';
 import LanguageSwitcher from './language-switcher';
+import ThemeToggle from './theme-toggle';
+import MotionToggle from './motion-toggle';
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLButtonElement>(null);
-  const { paused, reduced, toggle } = usePageMotion();
   const { locale, t } = useLanguage();
   return (
     <header
@@ -48,26 +48,12 @@ export default function SiteHeader() {
         >
           {t('Let’s talk')}
         </Link>
+        <MotionToggle className="menu-motion" />
       </nav>
       <div className="header-actions">
         <LanguageSwitcher />
-        <button
-          type="button"
-          className="motion-toggle"
-          onClick={toggle}
-          aria-label={t(
-            reduced ? 'Reduced motion enabled' : paused ? 'Play motion' : 'Pause motion',
-          )}
-          disabled={reduced}
-          aria-pressed={paused}
-        >
-          {paused ? (
-            <IconPlayerPlay size={16} aria-hidden />
-          ) : (
-            <IconPlayerPause size={16} aria-hidden />
-          )}
-          <span>{t('Motion')}</span>
-        </button>
+        <ThemeToggle />
+        <MotionToggle className="header-motion" />
         <Link className="pill-button header-contact" href={`${localePath(locale)}#Contact`}>
           {t('Let’s talk')} <span aria-hidden>✳</span>
         </Link>

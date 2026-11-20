@@ -9,9 +9,9 @@ Contact details live in `src/utils/site.ts`; the published phone link is `tel:+9
 
 ## Languages and pages
 
-The portfolio and `/about` are available in Uzbek (default), English (`/en`), and Russian
+The portfolio and `/about` are available in English (default), Uzbek (`/uz`), and Russian
 (`/ru`). Each page has translated metadata, a canonical URL, and language alternates.
-`src/middleware.ts` internally maps unprefixed paths to Uzbek and redirects `/uz` aliases.
+`src/middleware.ts` internally maps unprefixed paths to English and redirects `/en` aliases.
 `src/utils/translations.ts` contains the Uzbek/Russian translations of the English source copy.
 Urbanist remains the primary font; Manrope supplies Cyrillic glyphs.
 
@@ -19,9 +19,15 @@ The language control uses native history with a short opacity/position transitio
 project filters and open details in place. Back/forward and reload follow the URL language.
 Reduced-motion and the existing motion pause control disable the transition.
 The About page presents the developer’s background and interests in anime/fantasy,
-mythology, architecture/BIM, interface motion, and AI experiments. These were curated
+architecture/BIM, interface motion, and AI experiments. These were curated
 from earlier conversations at the user's request; private chat content is not published.
 The share preview at `/og-image.png` uses the approved symbol, current domain, and contact.
+
+Light/dark mode follows the device preference until the visitor uses the header toggle.
+The explicit choice is saved under `xushnud-theme`, applied before paint, and shared
+between tabs. Storage restrictions fall back to an in-memory choice. Theme colors cover
+both pages, galleries, menus, and the image viewer; screenshots are never inverted.
+On phones, the motion control is available inside the navigation menu.
 
 ## Development
 

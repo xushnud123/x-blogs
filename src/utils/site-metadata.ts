@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { profile } from './portfolio';
-import { locales, siteUrl, site, type Locale } from './site';
+import { defaultLocale, locales, siteUrl, site, type Locale } from './site';
 import { translate } from './translations';
 
 export function pageCopy(locale: Locale, path: string) {
@@ -27,7 +27,7 @@ export function pageMetadata(locale: Locale, path = '/'): Metadata {
       canonical: copy.url,
       languages: Object.fromEntries([
         ...locales.map((language) => [language, siteUrl(language, path)]),
-        ['x-default', siteUrl('uz', path)],
+        ['x-default', siteUrl(defaultLocale, path)],
       ]),
     },
     openGraph: {

@@ -4,6 +4,7 @@ import { createContext, useContext, useEffect, useRef, useState, type ReactNode 
 import { flushSync } from 'react-dom';
 import { usePathname } from 'next/navigation';
 import {
+  defaultLocale,
   languageNames,
   localePath,
   locales,
@@ -19,7 +20,7 @@ const LanguageContext = createContext<{
   locale: Locale;
   t: (text: string) => string;
   switchLanguage: (locale: Locale) => void;
-}>({ locale: 'uz', t: (text) => text, switchLanguage: () => {} });
+}>({ locale: defaultLocale, t: (text) => text, switchLanguage: () => {} });
 
 export const useLanguage = () => useContext(LanguageContext);
 
@@ -67,7 +68,7 @@ export default function LanguageProvider({
     for (const language of [...locales, 'x-default'] as const) {
       document
         .querySelector(`link[hreflang="${language}"]`)
-        ?.setAttribute('href', siteUrl(language === 'x-default' ? 'uz' : language, path));
+        ?.setAttribute('href', siteUrl(language === 'x-default' ? defaultLocale : language, path));
     }
   }, [locale, pathname]);
 

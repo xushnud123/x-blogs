@@ -7,8 +7,9 @@ export const site = {
   telegram: 'https://t.me/XushnudbekRaimov',
 };
 
-export const locales = ['uz', 'en', 'ru'] as const;
+export const locales = ['en', 'uz', 'ru'] as const;
 export type Locale = (typeof locales)[number];
+export const defaultLocale: Locale = 'en';
 export const languageNames: Record<Locale, string> = {
   uz: 'O‘zbekcha',
   en: 'English',
@@ -18,7 +19,7 @@ export const isLocale = (value: string): value is Locale => locales.includes(val
 
 export function localePath(locale: Locale, path = '/') {
   const suffix = path === '/' ? '' : path;
-  return locale === 'uz' ? suffix || '/' : `/${locale}${suffix}`;
+  return locale === defaultLocale ? suffix || '/' : `/${locale}${suffix}`;
 }
 
 export function siteUrl(locale: Locale, path = '/') {
@@ -28,6 +29,6 @@ export function siteUrl(locale: Locale, path = '/') {
 
 export function parseLocalePath(pathname: string) {
   const segments = pathname.split('/').filter(Boolean);
-  const locale: Locale = isLocale(segments[0]) ? (segments.shift() as Locale) : 'uz';
+  const locale: Locale = isLocale(segments[0]) ? (segments.shift() as Locale) : defaultLocale;
   return { locale, path: segments.length ? `/${segments.join('/')}` : '/' };
 }

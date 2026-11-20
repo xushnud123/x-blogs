@@ -16,12 +16,6 @@ const interests = [
     label: 'Bleach / Fullmetal Alchemist / Marvel',
   },
   {
-    title: 'Mythology & stories',
-    description:
-      'Stories such as the Ramayana and Mahabharata make me curious about their characters, timelines, and connections. One question often leads to the next.',
-    label: 'Ramayana / Mahabharata',
-  },
-  {
     title: 'Architecture & engineering',
     description:
       'I explore how drawings, BIM models, calculations, and estimates connect. I’m especially interested in using software and AI to make that work more consistent and easier to check.',

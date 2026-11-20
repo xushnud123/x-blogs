@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { defaultLocale, locales } from '@/utils/site';
 
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
-  if (url.pathname === '/uz' || url.pathname.startsWith('/uz/')) {
-    url.pathname = url.pathname.slice(3) || '/';
+  const prefix = `/${defaultLocale}`;
+  if (url.pathname === prefix || url.pathname.startsWith(`${prefix}/`)) {
+    url.pathname = url.pathname.slice(prefix.length) || '/';
     return NextResponse.redirect(url, 308);
   }
-  if (/^\/(en|ru)(\/|$)/.test(url.pathname)) return NextResponse.next();
-  url.pathname = `/uz${url.pathname === '/' ? '' : url.pathname}`;
+  if (
+    locales.some(
+      (locale) => url.pathname === `/${locale}` || url.pathname.startsWith(`/${locale}/`),
+    )
+  )
+    return NextResponse.next();
+  url.pathname = `${prefix}${url.pathname === '/' ? '' : url.pathname}`;
   return NextResponse.rewrite(url);
 }
 

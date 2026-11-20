@@ -7,6 +7,7 @@ import { PageMotion } from '@/app/_components/motion/motion';
 import LanguageProvider from '@/app/_components/language-provider';
 import SiteHeader from '@/app/_components/site-header';
 import Footer from '@/app/_components/footer/footer';
+import { themeInitScript } from '@/utils/theme';
 import '../globals.css';
 
 const urbanist = Urbanist({ subsets: ['latin'], display: 'swap', variable: '--font-urbanist' });
@@ -47,7 +48,14 @@ export default async function RootLayout({
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return (
-    <html lang={locale} className={`${urbanist.variable} ${manrope.variable}`}>
+    <html
+      lang={locale}
+      className={`${urbanist.variable} ${manrope.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script id="theme-init" dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body id="top">
         <PageMotion>
           <LanguageProvider initialLocale={locale}>
