@@ -75,5 +75,6 @@ are compressed for delivery without cropping; the Beon ribbon cleanup is noted a
 Galleries show every image without a carousel: phone screens sit side by side when
 space allows and stack at full width on smaller screens. Large desktop layouts give
 most of the row to the images and keep project descriptions alongside them; narrower
-layouts put the description first. Each screen has a short caption and a full-size viewer.
+layouts put the description first. Landscape website and desktop captures use the full
+row width, with their description above. Each screen has a short caption and a full-size viewer.
 Tablet navigation collapses before it becomes crowded.

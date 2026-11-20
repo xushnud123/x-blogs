@@ -60,7 +60,7 @@ export default function ProjectArt({ id }: { id: string }) {
                   sizes={
                     media.layout === 'portrait'
                       ? '(max-width: 440px) 90vw, 420px'
-                      : '(max-width: 1279px) 95vw, 960px'
+                      : '(max-width: 1279px) 95vw, 1200px'
                   }
                 />
                 <span className="media-enlarge" aria-hidden>
@@ -124,7 +124,7 @@ export default function ProjectArt({ id }: { id: string }) {
                 sizes={
                   media.layout === 'portrait'
                     ? '(max-width: 600px) 95vw, 560px'
-                    : '(max-width: 1100px) 95vw, 1100px'
+                    : '(max-width: 1440px) 95vw, 1440px'
                 }
               />
             </div>
