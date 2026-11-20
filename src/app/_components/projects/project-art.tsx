@@ -1,15 +1,58 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { IconArrowUpRight, IconChevronLeft, IconChevronRight, IconX } from '@tabler/icons-react';
 import { projectMedia } from '@/utils/project-media';
+import { usePageMotion } from '../motion/motion';
 
 export default function ProjectArt({ id }: { id: string }) {
   const media = projectMedia[id];
   const [active, setActive] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
+  const gallery = useRef<HTMLDivElement>(null);
+  const [galleryState, setGalleryState] = useState({ index: 0, scrollable: false });
+  const { paused } = usePageMotion();
   const isOpen = active !== null;
+
+  const syncGallery = useCallback(() => {
+    const element = gallery.current;
+    if (!element) return;
+    const shots = Array.from(element.children) as HTMLElement[];
+    const maxScroll = element.scrollWidth - element.clientWidth;
+    const nearest = shots.reduce(
+      (best, shot, index) =>
+        Math.abs(shot.offsetLeft - element.scrollLeft) <
+        Math.abs(shots[best].offsetLeft - element.scrollLeft)
+          ? index
+          : best,
+      0,
+    );
+    setGalleryState({
+      index:
+        maxScroll <= 2 || element.scrollLeft <= 2
+          ? 0
+          : element.scrollLeft >= maxScroll - 2
+            ? shots.length - 1
+            : nearest,
+      scrollable: maxScroll > 2,
+    });
+  }, []);
+
+  useEffect(() => {
+    const element = gallery.current;
+    if (!element) return;
+    const observer = new ResizeObserver(syncGallery);
+    observer.observe(element);
+    syncGallery();
+    return () => observer.disconnect();
+  }, [syncGallery]);
+
+  const browseGallery = (direction: number) => {
+    const element = gallery.current;
+    const shot = element?.children[galleryState.index + direction] as HTMLElement | undefined;
+    if (shot) element?.scrollTo({ left: shot.offsetLeft, behavior: paused ? 'instant' : 'smooth' });
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -31,7 +74,7 @@ export default function ProjectArt({ id }: { id: string }) {
   return (
     <>
       <figure className={`project-art real-media media-${id} media-${media.layout}`}>
-        <div className="media-gallery">
+        <div className="media-gallery" ref={gallery} onScroll={syncGallery}>
           {media.images.map((item, index) => (
             <button
               className="media-shot"
@@ -48,7 +91,7 @@ export default function ProjectArt({ id }: { id: string }) {
                 height={item.height}
                 sizes={
                   media.layout === 'portrait'
-                    ? '(max-width: 760px) 45vw, 300px'
+                    ? '(max-width: 760px) 75vw, 300px'
                     : '(max-width: 760px) 90vw, 1000px'
                 }
               />
@@ -61,9 +104,34 @@ export default function ProjectArt({ id }: { id: string }) {
         <figcaption className="media-caption">
           <span>{media.caption}</span>
           <span className="media-hint">
-            Click to explore <IconArrowUpRight size={14} aria-hidden />
+            Open image <IconArrowUpRight size={14} aria-hidden />
           </span>
         </figcaption>
+        {galleryState.scrollable && (
+          <div className="gallery-controls" aria-label={`${media.title} screenshots`}>
+            <span aria-live="polite" aria-atomic="true">
+              {galleryState.index + 1} / {media.images.length}
+            </span>
+            <div>
+              <button
+                type="button"
+                aria-label={`Previous ${media.title} screenshot`}
+                disabled={galleryState.index === 0}
+                onClick={() => browseGallery(-1)}
+              >
+                <IconChevronLeft size={20} aria-hidden />
+              </button>
+              <button
+                type="button"
+                aria-label={`Next ${media.title} screenshot`}
+                disabled={galleryState.index === media.images.length - 1}
+                onClick={() => browseGallery(1)}
+              >
+                <IconChevronRight size={20} aria-hidden />
+              </button>
+            </div>
+          </div>
+        )}
       </figure>
       <dialog
         ref={dialog}

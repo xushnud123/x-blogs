@@ -6,33 +6,35 @@ export type ProjectMedia = {
   source?: string;
   images: ProjectImage[];
 };
-const storeImage = (file: string, alt: string): ProjectImage => ({
+const appScreen = (file: string, alt: string): ProjectImage => ({
   file,
   alt,
-  width: file.startsWith('tokbor') ? 598 : 600,
-  height: file.startsWith('tokbor') ? 1300 : 1299,
+  width: 1206,
+  height: 2622,
 });
 
 export const projectMedia: Record<string, ProjectMedia> = {
   tokbor: {
     title: 'TOK BOR',
     layout: 'portrait',
-    caption: 'Official App Store images',
+    caption: 'App screens · demo data',
     source: 'https://apps.apple.com/uz/app/tokbor/id1562120388',
     images: [
-      storeImage('tokbor-map', 'TOK BOR official station discovery preview'),
-      storeImage('tokbor-session', 'TOK BOR official charging session preview'),
-      storeImage('tokbor-qr', 'TOK BOR official QR charging preview'),
+      appScreen('tokbor-charging-app', 'TOK BOR in-app charging status with a sample session'),
+      appScreen(
+        'tokbor-filters-app',
+        'TOK BOR station filters with connector types and power options',
+      ),
     ],
   },
   beon: {
     title: 'Beon',
     layout: 'portrait',
-    caption: 'Official App Store images',
+    caption: 'App screens · demo data',
     source: 'https://apps.apple.com/uz/app/beon/id6478271325',
     images: [
-      storeImage('beon-map', 'Beon official charging station map preview'),
-      storeImage('beon-networks', 'Beon official charging network selection preview'),
+      appScreen('beon-charging-app', 'Beon charging setup with sample balance and charge amount'),
+      appScreen('beon-starting-app', 'Beon starting a charging session in the test app'),
     ],
   },
   navbat: {
@@ -57,10 +59,10 @@ export const projectMedia: Record<string, ProjectMedia> = {
   mobile: {
     title: 'TOK BOR & Beon Mobile',
     layout: 'portrait',
-    caption: 'Official App Store images',
+    caption: 'App screens · demo data',
     images: [
-      storeImage('tokbor-session', 'TOK BOR mobile charging status and Live Activity'),
-      storeImage('beon-offers', 'Beon mobile charging offers screen'),
+      appScreen('tokbor-charging-app', 'TOK BOR mobile charging status with sample readings'),
+      appScreen('beon-charging-app', 'Beon mobile charging setup with sample balance'),
     ],
   },
   'jonli-navbat': {
