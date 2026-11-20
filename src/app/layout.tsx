@@ -27,7 +27,14 @@ export const metadata: Metadata = {
     description: profile.description,
     images: '/og-image-blog.jpg',
   },
-  icons: { icon: '/favicon-32x32.png', apple: '/apple-touch-icon.png' },
+  icons: {
+    icon: [
+      { url: '/brand/favicon.svg', type: 'image/svg+xml' },
+      { url: '/brand/favicon-32.png', type: 'image/png', sizes: '32x32' },
+    ],
+    shortcut: '/brand/favicon-32.png',
+    apple: { url: '/brand/apple-touch-icon.png', sizes: '180x180' },
+  },
   manifest: '/site.webmanifest',
 };
 

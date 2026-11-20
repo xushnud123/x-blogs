@@ -11,7 +11,6 @@ export default function Company() {
         <span>TOK BOR</span>
         <span className="beon-word">beon.</span>
         <span>comfi</span>
-        <span className="buduar-word">BUDUAR</span>
       </div>
     </Reveal>
   );

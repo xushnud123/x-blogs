@@ -76,15 +76,6 @@ export default function Projects() {
           ))}
         </AnimatePresence>
       </div>
-      <Reveal className="earlier-work">
-        <span>Previously, on the web</span>
-        <a href="https://comfi.ai" target="_blank" rel="noopener noreferrer">
-          Comfi <span>B2B payments</span>
-        </a>
-        <a href="https://buduar.space" target="_blank" rel="noopener noreferrer">
-          Buduar <span>3D commerce</span>
-        </a>
-      </Reveal>
     </section>
   );
 }

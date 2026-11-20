@@ -94,20 +94,11 @@ button svg {
 .wordmark {
   width: 64px;
   height: 64px;
-  border-radius: 22px;
+  flex: none;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: 50px;
-  font-weight: 700;
-  letter-spacing: -6px;
-  line-height: 1;
-  padding-right: 6px;
-}
-.wordmark span {
-  color: #b7d5bd;
 }
 .main-nav {
   display: flex;
@@ -501,27 +492,8 @@ button svg {
   border-radius: 100px;
   font-size: 14px;
 }
-.earlier-work {
-  display: flex;
-  align-items: center;
-  gap: 64px;
-  margin: 68px 0 100px;
-  padding-top: 30px;
-  border-top: 1px solid var(--line);
-}
-.earlier-work > span {
-  font-size: 16px;
-  color: var(--muted);
-}
-.earlier-work > a {
-  font-size: 25px;
-  font-weight: 500;
-  letter-spacing: -0.025em;
-}
-.earlier-work > a > span {
-  font-size: 14px;
-  margin-left: 14px;
-  color: var(--muted);
+.work-section {
+  margin-bottom: 100px;
 }
 .company-strip {
   display: flex;
@@ -546,11 +518,6 @@ button svg {
 }
 .company-strip .beon-word {
   font-weight: 800;
-}
-.company-strip .buduar-word {
-  font-size: 26px;
-  letter-spacing: 0.08em;
-  font-weight: 400;
 }
 .experience-section {
   display: grid;
@@ -813,9 +780,6 @@ button svg {
   .company-strip > div {
     font-size: 30px;
   }
-  .company-strip .buduar-word {
-    font-size: 21px;
-  }
 }
 @media (max-width: 760px) {
   html {
@@ -832,8 +796,6 @@ button svg {
   .wordmark {
     width: 52px;
     height: 52px;
-    border-radius: 17px;
-    font-size: 43px;
   }
   .main-nav {
     display: none;
@@ -970,20 +932,8 @@ button svg {
   .project-details-inner {
     padding-top: 20px;
   }
-  .earlier-work {
-    gap: 24px;
-    flex-wrap: wrap;
-    margin: 45px 0 75px;
-  }
-  .earlier-work > span {
-    width: 100%;
-  }
-  .earlier-work > a {
-    font-size: 23px;
-  }
-  .earlier-work > a > span {
-    display: block;
-    margin: 3px 0 0;
+  .work-section {
+    margin-bottom: 75px;
   }
   .company-strip {
     display: block;
@@ -998,9 +948,6 @@ button svg {
     gap: 20px;
     flex-wrap: wrap;
     font-size: 28px;
-  }
-  .company-strip .buduar-word {
-    font-size: 19px;
   }
   .experience-section {
     grid-template-columns: 1fr;
@@ -1163,73 +1110,51 @@ button svg {
 .hero-title .title-line {
   padding-bottom: 0.1em;
 }
-.wordmark {
-  padding: 0;
-}
 .logo-mark {
   width: 100%;
   height: 100%;
   overflow: visible;
 }
-.logo-stroke {
-  stroke: currentColor;
-  stroke-width: 6;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  animation: logo-draw 700ms var(--ease) both;
-}
-.logo-stroke-second {
-  animation-delay: 140ms;
-}
-.logo-dot {
-  fill: #b7d5bd;
+.logo-part {
   transform-box: fill-box;
   transform-origin: center;
-  animation: logo-dot-in 600ms var(--ease) 360ms both;
+  animation: logo-assemble 500ms var(--ease) both;
 }
-.wordmark:is(:hover, :focus-visible) .logo-stroke {
-  animation: logo-redraw 700ms var(--ease) both;
+.logo-part-top {
+  --logo-x: 0px;
+  --logo-y: -70px;
 }
-.wordmark:is(:hover, :focus-visible) .logo-stroke-second {
-  animation-delay: 110ms;
+.logo-part-left {
+  --logo-x: -60px;
+  --logo-y: 0px;
+  animation-delay: 70ms;
 }
-.wordmark:is(:hover, :focus-visible) .logo-dot {
-  animation: logo-dot-replay 650ms var(--ease) both;
+.logo-part-lower {
+  --logo-x: 45px;
+  --logo-y: 45px;
+  animation-delay: 140ms;
 }
-@keyframes logo-draw {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+.wordmark:is(:hover, :focus-visible) .logo-part {
+  animation-name: logo-greet;
+  animation-duration: 400ms;
 }
-@keyframes logo-redraw {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes logo-dot-in {
+@keyframes logo-assemble {
   from {
     opacity: 0;
-    transform: translateY(-14px) scale(0.3);
+    transform: translate(var(--logo-x), var(--logo-y));
   }
   to {
     opacity: 1;
     transform: none;
   }
 }
-@keyframes logo-dot-replay {
+@keyframes logo-greet {
   0%,
   100% {
     transform: none;
   }
-  35% {
-    transform: translateY(-12px) scale(0.75);
+  40% {
+    transform: translate(calc(var(--logo-x) * 0.45), calc(var(--logo-y) * 0.45));
   }
 }
 .site-shell[data-motion='paused'] .logo-mark * {
@@ -1267,7 +1192,7 @@ button svg {
 .project-art.media-coucoupet {
   background: #f0e1de;
 }
-.project-art.media-tokbor-web {
+.project-art.media-comfi {
   background: #d8e1d9;
 }
 .project-art.media-turborepo {

@@ -19,9 +19,9 @@ project's GitHub/GitLab source labels. Profile metadata uses the same content.
 
 The November 2026 refresh is based on repository READMEs, package manifests, and
 recent authored contributions. It covers TOK BOR and Beon platform/mobile work,
-Navbat, Jonli Navbat, CoucouPet, the TOK BOR website, and the public
+Navbat, Jonli Navbat, CoucouPet, Comfi, and the public
 [full-stack monorepo](https://github.com/xushnud123/turborepo-project).
-Comfi, Buduar, and Famic retain the earlier portfolio's historical references;
+Comfi and Famic retain the earlier portfolio's historical experience references;
 "2026 contributions" is a project-work label, not an inferred employment date.
 
 Only link to a public website or an accessible public repository. Private-source
@@ -37,10 +37,12 @@ reduced-motion support are included. The FAQ uses native disclosure controls. `/
 
 `src/utils/project-media.ts` maps the real product images to each project. Click an
 image to open the accessible viewer; Escape closes it and arrow keys switch images.
-The headline features the developer's name. The original SVG monogram draws in on
-entry and replays on hover/focus, inspired by the short kinetic identity treatments
-on [Prompt Motion](https://prompt-motion.com/techhalla-90b8ec). Pause and reduced-motion
-preferences leave the logo fully visible without animation.
+The headline features the developer's name. The approved standalone sage symbol is
+based on the [Xentam reference by Tuintrick Studio](https://logosystems.app/logo/ls-xentam),
+with lighter branches and open spacing. Its geometry lives in `src/utils/brand.json`;
+matching browser and mobile icons live in `public/brand/`. Three parts assemble briefly
+on entry and respond to hover/focus. Pause and reduced-motion preferences leave the
+logo fully visible without animation.
 
 Image provenance (captured November 2026):
 
@@ -53,7 +55,10 @@ Image provenance (captured November 2026):
   and intercepted sample API responses. No live queue or Telegram account was used.
 - CoucouPet: the actual SwiftUI panel, rendered by the app's built-in snapshot mode
   with sample pets. No personal memory, calendars, or conversations were loaded.
-- TOK BOR Website: a browser capture of the public homepage.
+- Comfi: the existing portfolio's `public/images/projects/Hero.png`, showing the
+  earlier Comfi website. Preserved as a historical project image rather than a claim
+  about the developer's authorship of the current public website. The stack is
+  verified against the Comfi landing repository's package manifest.
 - Full-stack Monorepo: the actual product table rendered locally with sample products
   and a demo account. No production database was contacted.
 

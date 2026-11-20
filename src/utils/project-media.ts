@@ -95,17 +95,17 @@ export const projectMedia: Record<string, ProjectMedia> = {
       },
     ],
   },
-  'tokbor-web': {
-    title: 'TOK BOR Website',
+  comfi: {
+    title: 'Comfi',
     layout: 'landscape',
-    caption: 'Live website',
-    source: 'https://tokbor-web.vercel.app',
+    caption: 'Comfi website',
+    source: 'https://comfi.ai',
     images: [
       {
-        file: 'tokbor-website',
-        alt: 'TOK BOR website homepage featuring its charging network',
-        width: 1440,
-        height: 1000,
+        file: 'comfi-website',
+        alt: 'Comfi website presenting flexible B2B payment terms',
+        width: 1280,
+        height: 800,
       },
     ],
   },

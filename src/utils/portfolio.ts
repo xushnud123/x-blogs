@@ -107,19 +107,19 @@ export const projects: Project[] = [
     stack: ['Swift', 'macOS', 'Claude Code'],
   },
   {
-    id: 'tokbor-web',
-    name: 'TOK BOR Website',
-    category: 'Interactive website',
+    id: 'comfi',
+    name: 'Comfi',
+    category: 'B2B payments & financing',
     sources: ['GitHub'],
     access: 'Private source',
     description:
-      'A responsive website for the EV charging network, combining product storytelling, an interactive map, and motion.',
+      'Frontend work on Comfi’s B2B payments website, presenting flexible payment terms and helping business customers discover financing options.',
     highlights: [
-      'Prerendered pages and responsive layouts',
-      'Interactive network map and product sections',
+      'B2B payments and financing product pages',
+      'Responsive interfaces built with reusable components',
     ],
-    stack: ['React', 'TanStack Start', 'Tailwind CSS', 'Motion'],
-    href: 'https://tokbor-web.vercel.app',
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    href: 'https://comfi.ai',
     linkLabel: 'Visit website',
   },
   {
@@ -195,6 +195,5 @@ export const recentExperience = [
 
 export const earlierExperience = [
   { name: 'Comfi', role: 'Frontend Developer', period: 'Started Jul 2021' },
-  { name: 'Buduar', role: 'Frontend Developer', period: 'Jan 2022 – Apr 2022' },
   { name: 'Famic', role: 'Junior Frontend Developer', period: 'Oct 2020 – May 2021' },
 ];

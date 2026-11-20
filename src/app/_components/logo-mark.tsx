@@ -1,10 +1,22 @@
-/** A drawn monogram: short entrance, replayed on the home link's hover or focus. */
+import brand from '@/utils/brand.json';
+
+/** The approved lightweight symbol, with a brief three-part entrance. */
 export default function LogoMark() {
   return (
-    <svg className="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-      <path className="logo-stroke logo-stroke-first" pathLength="1" d="M18 20L36 43" />
-      <path className="logo-stroke logo-stroke-second" pathLength="1" d="M36 20L18 43" />
-      <circle className="logo-dot" cx="46" cy="43" r="4" />
+    <svg
+      className="logo-mark"
+      viewBox={brand.viewBox}
+      fill="none"
+      stroke={brand.color}
+      strokeWidth={brand.strokeWidth}
+      strokeLinecap="butt"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {brand.parts.map((part) => (
+        <path key={part.name} className={`logo-part logo-part-${part.name}`} d={part.path} />
+      ))}
     </svg>
   );
 }
