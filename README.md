@@ -1,10 +1,27 @@
-# X-Blogs — Raimov Xushnudbek
+# xushnud.dev — Xushnudbek Raimov
 
 Personal portfolio built with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion.
 
 Public website: [xushnud.dev](https://xushnud.dev). The `www` address and the former
 `x-blogs-ten.vercel.app` address redirect to this domain, preserving paths and queries.
-Canonical metadata, social previews, and the sitemap use the custom domain.
+Canonical metadata, social previews, structured data, and the sitemap use the custom domain.
+Contact details live in `src/utils/site.ts`; the published phone link is `tel:+998998820641`.
+
+## Languages and pages
+
+The portfolio and `/about` are available in Uzbek (default), English (`/en`), and Russian
+(`/ru`). Each page has translated metadata, a canonical URL, and language alternates.
+`src/middleware.ts` internally maps unprefixed paths to Uzbek and redirects `/uz` aliases.
+`src/utils/translations.ts` contains the Uzbek/Russian translations of the English source copy.
+Urbanist remains the primary font; Manrope supplies Cyrillic glyphs.
+
+The language control uses native history with a short opacity/position transition, keeping
+project filters and open details in place. Back/forward and reload follow the URL language.
+Reduced-motion and the existing motion pause control disable the transition.
+The About page presents the developer’s background and interests in anime/fantasy,
+mythology, architecture/BIM, interface motion, and AI experiments. These were curated
+from earlier conversations at the user's request; private chat content is not published.
+The share preview at `/og-image.png` uses the approved symbol, current domain, and contact.
 
 ## Development
 
@@ -35,7 +52,7 @@ credentials, customer records, unsupported ratings, or production statistics.
 The main page uses Urbanist and a light editorial design inspired by the user’s
 Ron Design Lab reference. Real product images use application captures with sample data.
 Large static project galleries, GitHub/GitLab filters, a mobile menu, motion pause controls, and
-reduced-motion support are included. The FAQ uses native disclosure controls. `/tests` remains the existing animation demonstration route.
+reduced-motion support are included. The FAQ uses native disclosure controls. `/tests` remains the existing animation demonstration route under `src/app/[locale]/tests`.
 
 ## Product images and identity
 

@@ -1,28 +1,33 @@
+'use client';
+
+import { useLanguage } from '@/app/_components/language-provider';
+
 import { skillGroups } from '@/utils/portfolio';
 import { Reveal } from '../motion/motion';
 
 export default function Skills() {
+  const { t } = useLanguage();
   return (
     <section id="Skills" className="skills-section section-wrap" aria-labelledby="skills-title">
       <Reveal className="section-heading">
         <h2 id="skills-title">
-          Many tools.
+          {t('Many tools.')}
           <br />
-          <span>One whole product.</span>
+          <span>{t('One whole product.')}</span>
         </h2>
         <p>
-          From the first interaction to the service behind it.
+          {t('From the first interaction to the service behind it.')}
           <br />
-          The technologies I work with.
+          {t('The technologies I work with.')}
         </p>
       </Reveal>
       <div className="skills-list">
         {skillGroups.map((group, index) => (
           <Reveal key={group.name} delay={index * 0.04} className="skill-row">
-            <h3>{group.name}</h3>
+            <h3>{t(group.name)}</h3>
             <ul>
               {group.items.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item}>{t(item)}</li>
               ))}
             </ul>
           </Reveal>

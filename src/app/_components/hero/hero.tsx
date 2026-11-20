@@ -1,11 +1,14 @@
 'use client';
 
+import { useLanguage } from '@/app/_components/language-provider';
+
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ease, usePageMotion } from '../motion/motion';
 
 export default function Hero() {
   const { paused } = usePageMotion();
+  const { t } = useLanguage();
   const entrance = (delay: number) => ({
     initial: paused ? (false as const) : { y: 70, opacity: 0 },
     animate: { y: 0, opacity: 1 },
@@ -14,8 +17,8 @@ export default function Hero() {
   return (
     <section className="hero section-wrap" aria-labelledby="hero-title">
       <motion.div className="hero-eyebrow" {...entrance(0)}>
-        <span>Full-stack & mobile developer</span>
-        <span>Interfaces. Systems. Real products.</span>
+        <span>{t('Full-stack & mobile developer')}</span>
+        <span>{t('Interfaces. Systems. Real products.')}</span>
       </motion.div>
       <h1 id="hero-title" className="hero-title">
         <span className="title-line">
@@ -30,13 +33,13 @@ export default function Hero() {
       </h1>
       <motion.div className="hero-bottom" {...entrance(0.32)}>
         <p>
-          I build the interface, the engine,
-          <br className="desktop-break" /> and everything in between.
+          {t('I build the interface, the engine,')}
+          <br className="desktop-break" /> {t('and everything in between.')}
         </p>
         <div className="hero-note">
-          <span>Web platforms. Mobile apps. Thoughtful details.</span>
+          <span>{t('Web platforms. Mobile apps. Thoughtful details.')}</span>
           <a href="#Work" className="text-link">
-            Explore selected work
+            {t('Explore selected work')}
           </a>
         </div>
       </motion.div>

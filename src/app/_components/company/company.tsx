@@ -1,11 +1,16 @@
+'use client';
+
+import { useLanguage } from '@/app/_components/language-provider';
+
 import { Reveal } from '../motion/motion';
 export default function Company() {
+  const { t } = useLanguage();
   return (
     <Reveal className="company-strip section-wrap">
       <p>
-        Some of the teams
+        {t('Some of the teams')}
         <br />
-        and products along the way.
+        {t('and products along the way.')}
       </p>
       <div>
         <span>TOK BOR</span>

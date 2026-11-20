@@ -1,8 +1,10 @@
 'use client';
 
+import { useLanguage } from '@/app/_components/language-provider';
+
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { projects, profile } from '@/utils/portfolio';
+import { projects } from '@/utils/portfolio';
 import Content from './content';
 import { Reveal, usePageMotion, ease } from '../motion/motion';
 
@@ -11,22 +13,32 @@ const filters = ['All projects', 'GitHub', 'GitLab'] as const;
 export default function Projects() {
   const [filter, setFilter] = useState<(typeof filters)[number]>('All projects');
   const { paused } = usePageMotion();
+  const { t, locale } = useLanguage();
   const visible = projects.filter(
     (project) => filter === 'All projects' || project.sources.includes(filter),
   );
+  const countLabel =
+    locale === 'ru'
+      ? (
+          { one: 'проект', few: 'проекта', many: 'проектов', other: 'проекта' } as Record<
+            string,
+            string
+          >
+        )[new Intl.PluralRules('ru').select(visible.length)]
+      : t('projects');
   return (
     <section id="Work" className="work-section section-wrap" aria-labelledby="work-title">
       <Reveal className="section-heading">
         <h2 id="work-title">
-          Selected <span>work.</span>
+          {t('Selected')} <span>{t('work.')}</span>
         </h2>
         <p>
-          A few things I’ve helped bring to life.
+          {t('A few things I’ve helped bring to life.')}
           <br />
-          Updated {profile.updated}.
+          {t('Updated November 2026.')}
         </p>
       </Reveal>
-      <div className="project-filters" role="group" aria-label="Filter projects by source">
+      <div className="project-filters" role="group" aria-label={t('Filter projects by source')}>
         {filters.map((item) => (
           <button
             key={item}
@@ -41,7 +53,7 @@ export default function Projects() {
                 transition={{ duration: 0.3, ease }}
               />
             )}
-            <span>{item}</span>
+            <span>{t(item)}</span>
             <span className="filter-count">
               {item === 'All projects'
                 ? projects.length
@@ -50,7 +62,7 @@ export default function Projects() {
           </button>
         ))}
         <p className="results-count" role="status">
-          {visible.length} projects
+          {visible.length} {countLabel}
         </p>
       </div>
       <div className="project-grid">

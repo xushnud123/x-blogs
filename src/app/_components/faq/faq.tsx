@@ -1,3 +1,7 @@
+'use client';
+
+import { useLanguage } from '@/app/_components/language-provider';
+
 import { Reveal } from '../motion/motion';
 const questions = [
   {
@@ -13,34 +17,35 @@ const questions = [
   {
     question: 'Where can I explore the code?',
     answer:
-      'The Full-stack Monorepo links to its public GitHub repository. Other project summaries describe my contributions to private repositories. Project previews show official App Store images or captures of the actual applications. Local captures use sample data; click any image to see it in full.',
+      'The Full-stack Monorepo links to its public GitHub repository. Other projects describe my contributions to private repositories. The galleries show actual applications with sample data; open any image to see it in full.',
   },
   {
     question: 'What’s the best way to reach you?',
     answer:
-      'Telegram or email works well. Tell me about the role or project, where things stand, and what you’d like to build next. We can take it from there.',
+      'Call +998 99 882 06 41, message me on Telegram, or send an email. Tell me about the role or project and what you’d like to build.',
   },
 ];
 export default function Faq() {
+  const { t } = useLanguage();
   return (
     <section id="FAQ" className="faq-section section-wrap" aria-labelledby="faq-title">
       <Reveal className="section-heading">
         <h2 id="faq-title">
-          Good <span>questions.</span>
+          {t('Good')} <span>{t('questions.')}</span>
         </h2>
-        <p>A few things before we say hello.</p>
+        <p>{t('A few things before we say hello.')}</p>
       </Reveal>
       <div className="faq-list">
         {questions.map(({ question, answer }) => (
           <Reveal key={question}>
             <details>
               <summary>
-                {question}
+                {t(question)}
                 <span className="faq-plus" aria-hidden>
                   +
                 </span>
               </summary>
-              <p>{answer}</p>
+              <p>{t(answer)}</p>
             </details>
           </Reveal>
         ))}

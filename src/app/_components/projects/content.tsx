@@ -1,18 +1,21 @@
 'use client';
 
+import { useLanguage } from '@/app/_components/language-provider';
+
 import { useState } from 'react';
 import { IconBrandGithub, IconBrandGitlab, IconPlus } from '@tabler/icons-react';
 import type { Project } from '@/utils/portfolio';
 import ProjectArt from './project-art';
 
 export default function Content({ project }: { project: Project }) {
+  const { t } = useLanguage();
   const [expanded, setExpanded] = useState(false);
   return (
     <article className={`project-card project-${project.id}`}>
       <div className="project-info">
         <div className="project-heading">
           <div>
-            <p className="project-category">{project.category}</p>
+            <p className="project-category">{t(project.category)}</p>
             <h3>{project.name}</h3>
           </div>
           <button
@@ -20,13 +23,13 @@ export default function Content({ project }: { project: Project }) {
             className="project-expand"
             aria-expanded={expanded}
             aria-controls={`details-${project.id}`}
-            aria-label={`${expanded ? 'Hide' : 'Explore'} ${project.name}`}
+            aria-label={`${t(expanded ? 'Hide' : 'Explore')} ${project.name}`}
             onClick={() => setExpanded(!expanded)}
           >
             <IconPlus size={24} aria-hidden />
           </button>
         </div>
-        <p className="project-description">{project.description}</p>
+        <p className="project-description">{t(project.description)}</p>
         <div className="project-meta">
           <div className="source-labels">
             {project.sources.map((source) => (
@@ -40,7 +43,7 @@ export default function Content({ project }: { project: Project }) {
               </span>
             ))}
           </div>
-          <span>{project.access}</span>
+          <span>{t(project.access)}</span>
         </div>
         <div
           className="project-details"
@@ -52,12 +55,12 @@ export default function Content({ project }: { project: Project }) {
             <div className="project-details-inner">
               <ul className="project-highlights">
                 {project.highlights.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{t(item)}</li>
                 ))}
               </ul>
-              <ul className="technology-tags" aria-label={`${project.name} technologies`}>
+              <ul className="technology-tags" aria-label={`${project.name} ${t('technologies')}`}>
                 {project.stack.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>{t(item)}</li>
                 ))}
               </ul>
               {project.href && (
@@ -67,7 +70,7 @@ export default function Content({ project }: { project: Project }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {project.linkLabel}
+                  {t(project.linkLabel ?? 'Visit website')}
                 </a>
               )}
             </div>
