@@ -8,4 +8,4 @@ Disallow:
 User-agent: *
 Disallow:
 Disallow: /cgi-bin/
-Sitemap: https://x-blogs-ten.vercel.app/sitemap.xml
+Sitemap: https://xushnud.dev/sitemap.xml

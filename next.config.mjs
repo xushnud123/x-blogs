@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return ['x-blogs-ten.vercel.app', 'www.xushnud.dev'].map((hostname) => ({
+      source: '/:path*',
+      has: [{ type: 'host', value: hostname }],
+      destination: 'https://xushnud.dev/:path*',
+      permanent: true,
+    }));
+  },
   images: {
     remotePatterns: [
       {

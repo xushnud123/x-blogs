@@ -10,7 +10,7 @@ import './globals.css';
 const urbanist = Urbanist({ subsets: ['latin'], display: 'swap', variable: '--font-urbanist' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://x-blogs-ten.vercel.app'),
+  metadataBase: new URL('https://xushnud.dev'),
   title: profile.title,
   description: profile.description,
   alternates: { canonical: '/' },

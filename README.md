@@ -2,6 +2,10 @@
 
 Personal portfolio built with Next.js, React, TypeScript, Tailwind CSS, and Framer Motion.
 
+Public website: [xushnud.dev](https://xushnud.dev). The `www` address and the former
+`x-blogs-ten.vercel.app` address redirect to this domain, preserving paths and queries.
+Canonical metadata, social previews, and the sitemap use the custom domain.
+
 ## Development
 
 ```sh
